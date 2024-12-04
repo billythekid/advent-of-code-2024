@@ -24,4 +24,17 @@ foreach ($column1 as $key => $num1) {
 
 $total = array_sum($distances);
 
-print_r($total);
+var_dump($total); // 118930414
+
+$similarityScores = [];
+// part 2 - similarity score
+foreach ($column1 as $num1) {
+    // how many times does num1 appear in column2?
+    $count = array_count_values($column2)[$num1] ?? 0;
+    $similarityScores[] = $num1 * $count;
+}
+
+$similarity = array_sum($similarityScores);
+
+var_dump($similarity); // 24349736
+
